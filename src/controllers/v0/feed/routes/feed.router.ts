@@ -1,8 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { FeedItem } from '../models/FeedItem';
-// import { requireAuth } from '../../users/routes/auth.router';
 import * as AWS from '../../../../aws';
-// import { Sequelize } from 'sequelize-typescript';
 import jwt from 'jsonwebtoken';
 import { config } from '../../../../config/config';
 
@@ -79,8 +77,6 @@ router.get('/', async (req: Request, res: Response) => {
     res.send(items);
 });
 
-//@TODO
-//Add an endpoint to GET a specific resource by Primary Key
 // update a specific resource
 router.patch('/:id', 
     requireAuth, 
@@ -103,21 +99,6 @@ router.patch('/:id',
 
         res.status(200).send({url: savedItem.url, caption: savedItem.url});
 });
-
-// router.get('/:fileName',
-//     requireAuth, 
-//     async (req: Request, res: Response) => {
-//         const { fileName } = req.params;
-
-//         const item = await FeedItem.f(fileName);
-//         if (!item) {
-//             return res.status(404).send("File Not Found");
-//         }
-
-//         const signedUrl = AWS.getGetSignedUrl(item.url);
-
-//         res.status(200).send({signedUrl, caption: item.url});
-// });
 
 // Get a signed url to put a new item in the bucket
 router.get('/signed-url/:fileName', 

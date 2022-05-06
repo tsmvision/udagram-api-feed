@@ -18,10 +18,4 @@ spec:
       - name: udagram-api-feed
         image: tsmvision/udagram-api-feed 
         ports:
-        - containerPort: 8090
-      # livenessProbe:
-      #   httpGet:
-      #     path: /health
-      #     port: 8080
-      #   initialDelaySeconds: 3
-      #   periodSeconds: 3
+        - containerPort: 8080
