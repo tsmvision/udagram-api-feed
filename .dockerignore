@@ -1,0 +1,9 @@
+.yml
+.yaml
+Dockerfile
+README.*
+*.http
+.env*
+www/
+node_modules/
+.gitignore
