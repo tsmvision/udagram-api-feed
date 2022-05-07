@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-feed
+  labels:
+    app: udagram-api-feed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+      - name: udagram-api-feed
+        image: tsmvision/udagram-api-feed
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: POSTGRES_USERNAME
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: POSTGRES_DATABASE
+        - name: POSTGRES_HOST
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: POSTGRES_HOST
+        - name: CURRENT_AWS_REGION
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: CURRENT_AWS_REGION
+        - name: CURRENT_AWS_PROFILE
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: CURRENT_AWS_PROFILE
+        - name: AWS_MEDIA_BUCKET
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: AWS_MEDIA_BUCKET
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: credentials
+              key: JWT_SECRET
