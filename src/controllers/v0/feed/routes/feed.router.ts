@@ -101,21 +101,21 @@ router.patch('/:id',
 });
 
 // Get a signed url to put a new item in the bucket
-router.get('/signed-url/:fileName', 
-    requireAuth, 
-    async (req: Request, res: Response) => {
-        const { fileName } = req.params;
-        const url = AWS.getPutSignedUrl(fileName);
-        res.status(201).send({url: url});
-});
+// router.get('/signed-url/:fileName', 
+//     requireAuth, 
+//     async (req: Request, res: Response) => {
+//         const { fileName } = req.params;
+//         const url = AWS.getPutSignedUrl(fileName);
+//         res.status(201).send({url: url});
+// });
 
-router.get('/:fileName', 
-    requireAuth, 
-    async (req: Request, res: Response) => {
-        const { fileName } = req.params;
-        const url = AWS.getGetSignedUrl(fileName);
-        res.status(201).send({url: url});
-});
+// router.get('/:fileName', 
+//     requireAuth, 
+//     async (req: Request, res: Response) => {
+//         const { fileName } = req.params;
+//         const url = AWS.getGetSignedUrl(fileName);
+//         res.status(201).send({url: url});
+// });
 
 // Post meta data and the filename after a file is uploaded 
 // NOTE the file name is the key name in the s3 bucket.
