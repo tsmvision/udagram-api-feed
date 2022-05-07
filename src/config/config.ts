@@ -12,14 +12,14 @@ export const config = {
   jwt: {
     secret: process.env.JWT_SECRET
   },
-  prod: {
-    username: process.env.POSTGRES_USERNAME,
-    password: process.env.POSTGRES_PASSWORD,
-    database: process.env.POSTGRES_DATABASE,
-    host: process.env.POSTGRES_HOST,
-    dialect: "postgress",
-    aws_region: process.env.CURRENT_AWS_REGION,
-    aws_profile: process.env.CURRENT_AWS_PROFILE,
-    aws_media_bucket: process.env.AWS_MEDIA_BUCKET
-  }
+  // prod: {
+  //   username: process.env.POSTGRES_USERNAME,
+  //   password: process.env.POSTGRES_PASSWORD,
+  //   database: process.env.POSTGRES_DATABASE,
+  //   host: process.env.POSTGRES_HOST,
+  //   dialect: "postgress",
+  //   aws_region: process.env.CURRENT_AWS_REGION,
+  //   aws_profile: process.env.CURRENT_AWS_PROFILE,
+  //   aws_media_bucket: process.env.AWS_MEDIA_BUCKET
+  // }
 }
