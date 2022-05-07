@@ -18,8 +18,8 @@ export const config = {
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
     dialect: "postgress",
-    aws_region: process.env.AWS_REGION,
-    aws_profile: process.env.AWS_PROFILE,
+    aws_region: process.env.CURRENT_AWS_REGION,
+    aws_profile: process.env.CURRENT_AWS_PROFILE,
     aws_media_bucket: process.env.AWS_MEDIA_BUCKET
   }
 }
